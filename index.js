@@ -1,3 +1,4 @@
+require('dotenv').config()
 const server = require('./api/server');
 
 let colors = require('colors'); // eslint-disable-line
