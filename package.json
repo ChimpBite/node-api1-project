@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "cross-env NODE_ENV=testing jest --watch --verbose --runInBand"
+    "test": "cross-env NODE_ENV=testing jest --watch --verbose --runInBand",
+    "heroku-postbuild": "cd client && npm i && npm run build"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
