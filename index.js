@@ -1,5 +1,14 @@
 require('dotenv').config()
 const server = require('./api/server');
+const express = require('express')
+const path = require('path')
+
+server.use(express.json());
+server.use(express.static(path.join(__dirname, 'client/build')))
+
+server.use('*', (req, res) => {
+    res.send(path.join(__dirname, 'client/build', 'index.html'))
+})
 
 let colors = require('colors'); // eslint-disable-line
 
@@ -11,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // catch-all that just sends back 
 server.use('*', (req, res) => {
-    res.send({ message: 'Connected'})
+    res.send(path.join(__dirname, 'client/build', 'index.html'))
 })
 
 const PORT = process.env.PORT || 4000
