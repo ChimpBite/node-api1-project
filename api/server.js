@@ -17,7 +17,7 @@ server.get('/api/users', (req, res) => {
             console.log(colors.yellow('Users', users))
             res.status(200).json(users)
         })
-        .catch(err => {
+        .catch(err => {// eslint-disable-line
             res.status(500).json({ message: "The users information could not be retrieved" })
         })
 })
@@ -34,7 +34,7 @@ server.get('/api/users/:id', (req, res) => {
                 res.json(user)
             }
             })
-            .catch(err => {
+            .catch(err => {// eslint-disable-line
                 res.status(500).json({ message: "The user information could not be retrieved"})
             })
         })
@@ -49,7 +49,7 @@ server.post('/api/users', (req, res) => {
         .then(user => {
             res.status(201).json(user)
         })
-        .catch(err => {
+        .catch(err => {// eslint-disable-line
             res.status(500).json({ message: "There was an error while saving the user to the database" })
         })
     }
